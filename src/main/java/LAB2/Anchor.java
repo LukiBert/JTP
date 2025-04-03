@@ -58,44 +58,41 @@ public class Anchor {
         }
     }
 
+    public void revert() {
+
+    }
+
+    public boolean hasLoop() {
+        return false;
+    }
+
     @Override
     public String toString() {
-        String ret = "";
+        StringBuilder ret = new StringBuilder();
         if (this.first != null) {
             Element current = this.first;
 
             do {
-                ret += current.getVal() + " -> ";
+                ret.append(current.getVal()).append(" -> ");
                 current = current.getNext();
             }
             while (current != null);
         }
-        ret += "null";
-        return ret;
+        ret.append("null");
+        return ret.toString();
     }
 
     @Override
     public boolean equals(Object o) {
-        if (o == null) { return false; }
-        if (this == o) { return true; }
         if (this.getClass() != o.getClass()) { return false; }
 
-        Element thisCurr = this.first;
-        Element oCurr = ((Anchor) o).first;
-
-        while (thisCurr.getNext() != null) {
-            if (oCurr == null) { return false; }
-
-            thisCurr = thisCurr.getNext();
-            oCurr = oCurr.getNext();
-        }
-
-
-        return true;
+        // TODO (Anchor) o == this;
+        return false;
     }
 
     @Override
     public Anchor clone() {
+        //super.clone();
         Anchor a = new Anchor();
         a.first = this.first;
         return a;
@@ -109,18 +106,9 @@ public class Anchor {
         Anchor link = new Anchor();
         link.insertAtTheFront(1);
         link.insertAtTheFront(2);
-        link.insertAtTheFront(3);
-        link.insertAtTheFront(4);
-        link.insertAtTheFront(5);
-        link.insertAtTheEnd(6);
-
-        link.removeLast();
-        link.removeLast();
-        link.removeLast();
-        System.out.println(link);
-
-        Element l1 = new Element(4);
-        Element l2 = null;
-        System.out.println(l1.equals(l2));
+        Anchor link2 = new Anchor();
+        link2.insertAtTheFront(1);
+        link2.insertAtTheFront(2);
+        System.out.println(link.equals(link2));
     }
 }

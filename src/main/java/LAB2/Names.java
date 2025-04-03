@@ -18,6 +18,10 @@ public class Names {
         return this.names.remove(randomNIndex);
     }
 
+    public boolean isEmpty() {
+        return this.names.isEmpty();
+    }
+
     public List<String> getNames() {
         return this.names;
     }
