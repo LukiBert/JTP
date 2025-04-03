@@ -86,7 +86,26 @@ public class Anchor {
     public boolean equals(Object o) {
         if (this.getClass() != o.getClass()) { return false; }
 
-        // TODO (Anchor) o == this;
+        Element currO = ((Anchor) o).first;
+        Element currThis = this.first;
+
+        if (currThis == null) {
+            if (currO == null) { return true; }
+        } else {
+            if (currO == null) { return false; }
+
+            while (currThis.getNext() != null && currO.getNext() != null) {
+                if (currThis.getVal() != currO.getVal()) { return false; }
+
+                currThis = currThis.getNext();
+                currO = currO.getNext();
+            }
+
+            if (currThis.getNext() == null && currO.getNext() == null) {
+                return currThis.getVal() == currO.getVal();
+            }
+        }
+
         return false;
     }
 
