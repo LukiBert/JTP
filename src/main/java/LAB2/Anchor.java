@@ -90,8 +90,6 @@ public class Anchor {
             oCurr = oCurr.getNext();
         }
 
-        current.setNext(null);
-        return next;
 
         return true;
     }
