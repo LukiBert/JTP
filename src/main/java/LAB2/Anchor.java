@@ -84,29 +84,21 @@ public class Anchor {
 
     @Override
     public boolean equals(Object o) {
-        if (this.getClass() != o.getClass()) { return false; }
+        if (this == o) return true;
+        if (o == null || this.getClass() != o.getClass()) { return false; }
 
-        Element currO = ((Anchor) o).first;
+        Anchor anchorO = (Anchor) o;
+        Element currO = anchorO.first;
         Element currThis = this.first;
 
-        if (currThis == null) {
-            if (currO == null) { return true; }
-        } else {
-            if (currO == null) { return false; }
+        while (currThis != null && currO != null) {
+            if (!currThis.equals(currO)) { return false; }
 
-            while (currThis.getNext() != null && currO.getNext() != null) {
-                if (currThis.getVal() != currO.getVal()) { return false; }
-
-                currThis = currThis.getNext();
-                currO = currO.getNext();
-            }
-
-            if (currThis.getNext() == null && currO.getNext() == null) {
-                return currThis.getVal() == currO.getVal();
-            }
+            currThis = currThis.getNext();
+            currO = currO.getNext();
         }
 
-        return false;
+        return currThis == null && currO == null;
     }
 
     @Override
