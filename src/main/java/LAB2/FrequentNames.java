@@ -43,6 +43,10 @@ public class FrequentNames {
         return this.frequentNames.isEmpty();
     }
 
+    public Map<String, Integer> getFrequentNames() {
+        return this.frequentNames;
+    }
+
     @Override
     public String toString() {
         return this.frequentNames.toString();

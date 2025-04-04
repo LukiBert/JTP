@@ -86,8 +86,12 @@ public class Anchor {
                 return true;
             }
         }
-            
+
         return false;
+    }
+
+    public Element getFirst() {
+        return this.first;
     }
 
     @Override
@@ -170,5 +174,6 @@ public class Anchor {
         link.removeFirst();
         System.out.println(link);
         System.out.println(link.clone());
+        System.out.println(link.hasLoop());
     }
 }

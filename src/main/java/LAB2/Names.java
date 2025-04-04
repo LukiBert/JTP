@@ -10,7 +10,7 @@ public class Names {
 
     public String chose() {
         if (this.names.isEmpty()) {
-            System.out.println("The list is empty");
+            //System.out.println("The list is empty");
             return null;
         }
 
