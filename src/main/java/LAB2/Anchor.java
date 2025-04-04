@@ -59,7 +59,19 @@ public class Anchor {
     }
 
     public void revert() {
+        Element prev = null;
+        Element curr = this.first;
+        Element next = null;
 
+        while (curr != null) {
+            next = curr.getNext();
+            curr.setNext(prev);
+
+            prev = curr;
+            curr = next;
+        }
+
+        this.first = prev;
     }
 
     public boolean hasLoop() {
@@ -117,9 +129,14 @@ public class Anchor {
         Anchor link = new Anchor();
         link.insertAtTheFront(1);
         link.insertAtTheFront(2);
+        link.insertAtTheFront(3);
+        link.insertAtTheFront(4);
         Anchor link2 = new Anchor();
         link2.insertAtTheFront(1);
         link2.insertAtTheFront(2);
         System.out.println(link.equals(link2));
+        System.out.println(link);
+        link.revert();
+        System.out.println(link);
     }
 }
