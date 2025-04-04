@@ -75,6 +75,18 @@ public class Anchor {
     }
 
     public boolean hasLoop() {
+        Element slow = this.first;
+        Element fast = this.first;
+
+        while (fast != null && fast.getNext() != null) {
+            slow = slow.getNext();
+            fast = fast.getNext().getNext();
+
+            if (slow == fast) {
+                return true;
+            }
+        }
+            
         return false;
     }
 
@@ -115,9 +127,22 @@ public class Anchor {
 
     @Override
     public Anchor clone() {
-        //super.clone();
         Anchor a = new Anchor();
-        a.first = this.first;
+
+        if (this.first == null) {
+            return a;
+        }
+
+        Element curr = this.first;
+        Element newFirst = new Element(curr.getVal());
+        a.first = newFirst;
+
+        while (curr.getNext() != null) {
+            curr = curr.getNext();
+            newFirst.setNext(new Element(curr.getVal()));
+            newFirst = newFirst.getNext();
+        }
+
         return a;
     }
 
@@ -131,12 +156,19 @@ public class Anchor {
         link.insertAtTheFront(2);
         link.insertAtTheFront(3);
         link.insertAtTheFront(4);
+        link.insertAtTheEnd(0);
         Anchor link2 = new Anchor();
         link2.insertAtTheFront(1);
         link2.insertAtTheFront(2);
+        System.out.println(link.clone());
         System.out.println(link.equals(link2));
         System.out.println(link);
         link.revert();
         System.out.println(link);
+        link.removeLast();
+        System.out.println(link);
+        link.removeFirst();
+        System.out.println(link);
+        System.out.println(link.clone());
     }
 }
