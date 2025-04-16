@@ -1,6 +1,6 @@
 package LAB3;
 
-public interface AbstractFigure {
+public interface Figure {
     void move(double dx, double dy);
     void flip();
     void rotate(double x);

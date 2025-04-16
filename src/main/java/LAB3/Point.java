@@ -1,8 +1,6 @@
 package LAB3;
 
-import LAB2.Element;
-
-public class Point implements AbstractFigure{
+public class Point implements Figure {
     private double x;
     private double y;
 
@@ -29,12 +27,10 @@ public class Point implements AbstractFigure{
     @Override
     public void rotate(double x) {
         double radian = Math.toRadians(x);
-        if(0.0 <= radian && radian < 2 * Math.PI) {
-            double new_x = this.x * Math.cos(radian) - this.y * Math.sin(radian);
-            double new_y = this.x * Math.sin(radian) + this.y * Math.cos(radian);
-            this.x = new_x;
-            this.y = new_y;
-        }
+        double new_x = this.x * Math.cos(radian) - this.y * Math.sin(radian);
+        double new_y = this.x * Math.sin(radian) + this.y * Math.cos(radian);
+        this.x = new_x;
+        this.y = new_y;
     }
 
     @Override

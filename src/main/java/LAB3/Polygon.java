@@ -1,6 +1,6 @@
 package LAB3;
 
-public class Polygon implements AbstractFigure {
+public class Polygon implements Figure {
     private Line[] lines;
 
     public Line[] getLines() { return this.lines; }

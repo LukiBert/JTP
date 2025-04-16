@@ -1,30 +1,30 @@
 package LAB3;
 
-public class Group implements AbstractFigure{
-    private Polygon[] polygons;
+public class Group implements Figure {
+    private Figure[] figures;
 
-    public Polygon[] getPolygons() {
-        return this.polygons;
+    public Figure[] getFigures() {
+        return this.figures;
     }
 
     @Override
     public void move(double dx, double dy) {
-        for (Polygon polygon : polygons) {
-            polygon.move(dx, dy);
+        for (Figure figure : figures) {
+            figure.move(dx, dy);
         }
     }
 
     @Override
     public void flip() {
-        for (Polygon polygon : polygons) {
-            polygon.flip();
+        for (Figure figure : figures) {
+            figure.flip();
         }
     }
 
     @Override
     public void rotate(double x) {
-        for (Polygon polygon : polygons) {
-            polygon.rotate(x);
+        for (Figure figure : figures) {
+            figure.rotate(x);
         }
     }
 
@@ -32,8 +32,8 @@ public class Group implements AbstractFigure{
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("< ");
-        for (Polygon polygon : polygons) {
-            builder.append(polygon.toString());
+        for (Figure figure : figures) {
+            builder.append(figure.toString());
         }
         builder.append(" >");
         return builder.toString();
@@ -46,12 +46,12 @@ public class Group implements AbstractFigure{
         if (o == null || this.getClass() != o.getClass()) { return false; }
 
         Group O = (Group) o;
-        Polygon[] Opolygons = O.getPolygons();
+        Figure[] Ofigures = O.getFigures();
 
         boolean equals = true;
 
-        for (int i = 0; i < this.polygons.length; i++) {
-            if (!this.polygons[i].equals(Opolygons[i])) {
+        for (int i = 0; i < this.figures.length; i++) {
+            if (!this.figures[i].equals(Ofigures[i])) {
                 equals = false;
                 break;
             }
@@ -60,7 +60,12 @@ public class Group implements AbstractFigure{
         return equals;
     }
 
-    public Group(Polygon[] polygons) {
-        this.polygons = polygons;
+    public Group(Figure[] figures) {
+        this.figures = figures;
     }
+
+    // ?static? group(figures) { return as group }
+    // clone() do każdej klasy
+    // po 3 testy do każdej metody klasy
+    // Zmienić kompozucję Polygon <- Point -> Line
 }

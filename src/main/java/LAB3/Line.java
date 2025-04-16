@@ -1,6 +1,6 @@
 package LAB3;
 
-public class Line implements AbstractFigure {
+public class Line implements Figure {
     private Point p1;
     private Point p2;
 
