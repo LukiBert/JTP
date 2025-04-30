@@ -69,7 +69,7 @@ public class Group implements Figure {
     }
 
     // TODO ?static? group(figures) { return as group }
-    // TODO clone() do każdej klasy
+    // clone() do każdej klasy
     // TODO po 3 testy do każdej metody klasy
     // Zmienić kompozucję Polygon <- Point -> Line
 }

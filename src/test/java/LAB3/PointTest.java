@@ -96,4 +96,26 @@ class PointTest {
     void testToString3() {
         assertEquals("(3.0, 4.0)", new Point(3, 4).toString());
     }
+
+    @Test
+    void testClone1() {
+        Point p1 = new Point(5, 10);
+        Point p2 = (Point) p1.clone();
+
+        assertNotNull(p2);
+    }
+
+    @Test
+    void testClone2() {
+        Point p1 = new Point(5, 10);
+        Point p2 = (Point) p1.clone();
+        assertEquals(p1, p2);
+    }
+
+    @Test
+    void testClone3() {
+        Point p1 = new Point(5, 10);
+        Point p2 = (Point) p1.clone();
+        assertNotSame(p1, p2);
+    }
 }
