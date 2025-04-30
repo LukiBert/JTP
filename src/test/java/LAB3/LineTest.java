@@ -78,7 +78,7 @@ class LineTest {
         assertTrue(Math.abs(line.getP2().getX() - (-1)) < EPSILON &&
                 Math.abs(line.getP2().getY() - 0) < EPSILON);
     }
-    
+
     @Test
     void testToString1() {
         Line line = new Line(new Point(1, 1), new Point(2, 2));
