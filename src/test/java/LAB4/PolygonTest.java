@@ -178,6 +178,23 @@ class PolygonTest {
     }
 
     @Test
+    void testEquals5() {
+        Polygon poly1 = new Polygon(new Point[] {
+                new Point(1, 1), new Point(2, 2)
+        });
+        assertEquals(poly1, poly1);
+    }
+
+    @Test
+    void testEquals6() {
+        Polygon poly1 = new Polygon(new Point[] {
+                new Point(1, 1), new Point(2, 2)
+        });
+        Line l = null;
+        assertNotEquals(poly1, l);
+    }
+
+    @Test
     void testClone1() {
         Polygon poly = new Polygon(new Point[] {
                 new Point(1, 1), new Point(2, 2)

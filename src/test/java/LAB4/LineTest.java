@@ -137,6 +137,12 @@ class LineTest {
     }
 
     @Test
+    void testEquals7() {
+        Line line1 = new Line(new Point(1, 1), new Point(2, 2));
+        assertNotEquals(line1, null);
+    }
+
+    @Test
     void testClone1() {
         Line line = new Line(new Point(1, 1), new Point(2, 2));
         Line cloned = (Line) line.clone();

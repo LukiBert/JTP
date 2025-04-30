@@ -182,6 +182,30 @@ class GroupTest {
     }
 
     @Test
+    void testEquals4() {
+        Group g1 = new Group(new Figure[] {
+                new Point(1, 1)
+        });
+        assertNotEquals(g1, null);
+    }
+
+    @Test
+    void testEquals5() {
+        Group g1 = new Group(new Figure[] {
+                new Point(0, 0)
+        });
+        assertEquals(g1, g1);
+    }
+
+    @Test
+    void testEquals6() {
+        Group g1 = new Group(new Figure[] {
+                new Point(1, 1)
+        });
+        assertNotEquals(g1, new Point(1, 1));
+    }
+
+    @Test
     void testClone1() {
         Group group = new Group(new Figure[] {
                 new Point(1, 1)
