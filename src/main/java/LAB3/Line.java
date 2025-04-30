@@ -33,7 +33,7 @@ public class Line implements Figure {
 
     @Override
     public Figure clone() {
-        return new Line(this.p1, this.p2);
+        return new Line((Point) this.p1.clone(), (Point) this.p2.clone());
     }
 
     @Override

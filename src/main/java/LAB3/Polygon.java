@@ -39,7 +39,11 @@ public class Polygon implements Figure {
 
     @Override
     public Figure clone() {
-        return new Polygon(this.points);
+        Point[] clonedPoints = new Point[this.points.length];
+        for (int i = 0; i < this.points.length; i++) {
+            clonedPoints[i] = (Point) this.points[i].clone();
+        }
+        return new Polygon(clonedPoints);
     }
 
     @Override

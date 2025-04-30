@@ -41,7 +41,11 @@ public class Group implements Figure {
 
     @Override
     public Figure clone() {
-        return new Group(this.figures);
+        Figure[] clonedFigures = new Figure[this.figures.length];
+        for (int i = 0; i < this.figures.length; i++) {
+            clonedFigures[i] = this.figures[i].clone();
+        }
+        return new Group(clonedFigures);
     }
 
     @Override
