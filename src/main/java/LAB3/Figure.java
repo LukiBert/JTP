@@ -6,4 +6,5 @@ public interface Figure {
     void rotate(double x);
     boolean equals(Object o);
     String toString();
+    Figure clone();
 }

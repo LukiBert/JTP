@@ -34,6 +34,16 @@ public class Point implements Figure {
     }
 
     @Override
+    public String toString() {
+        return "(" + this.x + ", " + this.y + ")";
+    }
+
+    @Override
+    public Figure clone() {
+        return new Point(this.x, this.y);
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || this.getClass() != o.getClass()) { return false; }
@@ -41,11 +51,6 @@ public class Point implements Figure {
         Point O = (Point) o;
 
         return this.x == O.x && this.y == O.y;
-    }
-
-    @Override
-    public String toString() {
-        return "(" + this.x + ", " + this.y + ")";
     }
 
     Point(double x, double y) {

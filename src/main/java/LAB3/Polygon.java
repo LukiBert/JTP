@@ -37,6 +37,10 @@ public class Polygon implements Figure {
         return builder.toString();
     }
 
+    @Override
+    public Figure clone() {
+        return new Polygon(this.points);
+    }
 
     @Override
     public boolean equals(Object o) {

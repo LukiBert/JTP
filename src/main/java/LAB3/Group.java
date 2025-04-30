@@ -39,6 +39,10 @@ public class Group implements Figure {
         return builder.toString();
     }
 
+    @Override
+    public Figure clone() {
+        return new Group(this.figures);
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -64,8 +68,8 @@ public class Group implements Figure {
         this.figures = figures;
     }
 
-    // ?static? group(figures) { return as group }
-    // clone() do każdej klasy
-    // po 3 testy do każdej metody klasy
+    // TODO ?static? group(figures) { return as group }
+    // TODO clone() do każdej klasy
+    // TODO po 3 testy do każdej metody klasy
     // Zmienić kompozucję Polygon <- Point -> Line
 }

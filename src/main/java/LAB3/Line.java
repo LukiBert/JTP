@@ -32,6 +32,11 @@ public class Line implements Figure {
     }
 
     @Override
+    public Figure clone() {
+        return new Line(this.p1, this.p2);
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || this.getClass() != o.getClass()) { return false; }
