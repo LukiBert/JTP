@@ -165,7 +165,7 @@ class PolygonTest {
         });
         assertNotNull(poly);
     }
-    
+
     @Test
     void testClone1() {
         Polygon poly = new Polygon(new Point[] {
