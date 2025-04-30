@@ -209,4 +209,31 @@ class GroupTest {
         assertNotSame(group, cloned);
         assertNotSame(group.getFigures()[0], cloned.getFigures()[0]);
     }
+
+    @Test
+    void testGroup1() {
+        Figure f1 = new Point(0, 0);
+        Figure f2 = new Point(1, 1);
+        Group group = Group.group(f1, f2);
+
+        assertEquals(new Group(new Figure[] { f1, f2 }), group);
+    }
+
+    @Test
+    void testGroup2() {
+        Figure f1 = new Line(new Point(0, 0), new Point(1, 1));
+        Figure f2 = new Polygon(new Point[] { new Point(1, 1), new Point(2, 2) });
+
+        Group group = Group.group(f1, f2);
+
+        assertEquals(2, group.getFigures().length);
+        assertTrue(group.getFigures()[0] instanceof Line);
+        assertTrue(group.getFigures()[1] instanceof Polygon);
+    }
+
+    @Test
+    void testGroup3() {
+        Group group = Group.group();
+        assertEquals(0, group.getFigures().length);
+    }
 }

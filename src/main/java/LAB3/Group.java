@@ -72,7 +72,11 @@ public class Group implements Figure {
         this.figures = figures;
     }
 
-    // TODO ?static? group(figures) { return as group }
+    public static Group group(Figure... figures) {
+        return new Group(figures);
+    }
+
+    // ?static? group(figures) { return as group }
     // clone() do każdej klasy
     // po 3 testy do każdej metody klasy
     // Zmienić kompozucję Polygon <- Point -> Line
