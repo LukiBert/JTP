@@ -1,28 +1,28 @@
 package LAB3;
 
 public class Polygon implements Figure {
-    private Line[] lines;
+    private Point[] points;
 
-    public Line[] getLines() { return this.lines; }
+    public Point[] getPoints() { return this.points; }
 
     @Override
     public void move(double dx, double dy) {
-        for (Line line : this.lines) {
-            line.move(dx, dy);
+        for (Point p : this.points) {
+            p.move(dx, dy);
         }
     }
 
     @Override
     public void flip() {
-        for (Line line : this.lines) {
-            line.flip();
+        for (Point p : this.points) {
+            p.flip();
         }
     }
 
     @Override
     public void rotate(double x) {
-        for (Line line : this.lines) {
-            line.rotate(x);
+        for (Point p : this.points) {
+            p.rotate(x);
         }
     }
 
@@ -30,8 +30,8 @@ public class Polygon implements Figure {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("{ ");
-        for (Line line : this.lines) {
-            builder.append(line);
+        for (Point p : this.points) {
+            builder.append(p);
         }
         builder.append(" }");
         return builder.toString();
@@ -44,12 +44,12 @@ public class Polygon implements Figure {
         if (o == null || this.getClass() != o.getClass()) { return false; }
 
         Polygon O = (Polygon) o;
-        Line[] Olines = O.getLines();
+        Point[] Opoints = O.getPoints();
 
         boolean equals = true;
 
-        for (int i = 0; i < this.lines.length; i++) {
-            if (!this.lines[i].equals(Olines[i])) {
+        for (int i = 0; i < this.points.length; i++) {
+            if (!this.points[i].equals(Opoints[i])) {
                 equals = false;
                 break;
             }
@@ -58,7 +58,7 @@ public class Polygon implements Figure {
         return equals;
     }
 
-    Polygon(Line[] lines) {
-        this.lines = lines;
+    Polygon(Point[] points) {
+        this.points = points;
     }
 }
