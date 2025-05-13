@@ -75,9 +75,4 @@ public class Group implements Figure {
     public static Group group(Figure... figures) {
         return new Group(figures);
     }
-
-    // ?static? group(figures) { return as group }
-    // clone() do każdej klasy
-    // po 3 testy do każdej metody klasy
-    // Zmienić kompozucję Polygon <- Point -> Line
 }
