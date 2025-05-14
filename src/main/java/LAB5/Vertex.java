@@ -56,4 +56,80 @@ public class Vertex {
             }
         }
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Vertex vertex = (Vertex) obj;
+        return label == vertex.label;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(label);
+    }
+
+    public List<Vertex> shortestPath(Vertex target) {
+        Map<Vertex, Vertex> prev = new HashMap<>();
+        Queue<Vertex> queue = new LinkedList<>();
+        Set<Vertex> visited = new HashSet<>();
+
+        queue.add(this);
+        visited.add(this);
+
+        while (!queue.isEmpty()) {
+            Vertex current = queue.poll();
+            if (current.equals(target)) {
+                return reconstructPath(prev, target);
+            }
+
+            for (Vertex neighbor : current.neighbors) {
+                if (!visited.contains(neighbor)) {
+                    visited.add(neighbor);
+                    prev.put(neighbor, current);
+                    queue.add(neighbor);
+                }
+            }
+        }
+
+        return Collections.emptyList();
+    }
+
+    private List<Vertex> reconstructPath(Map<Vertex, Vertex> prev, Vertex target) {
+        List<Vertex> path = new ArrayList<>();
+        for (Vertex at = target; at != null; at = prev.get(at)) {
+            path.add(at);
+        }
+        Collections.reverse(path);
+        return path;
+    }
+
+    public boolean hasLoop() {
+        Set<Vertex> visited = new HashSet<>();
+        Set<Vertex> inPath = new HashSet<>();
+        return dfsLoop(this, visited, inPath);
+    }
+
+    private boolean dfsLoop(Vertex current, Set<Vertex> visited, Set<Vertex> inPath) {
+        if (inPath.contains(current)) {
+            return true;
+        }
+
+        if (visited.contains(current)) {
+            return false;
+        }
+
+        visited.add(current);
+        inPath.add(current);
+
+        for (Vertex neighbor : current.neighbors) {
+            if (dfsLoop(neighbor, visited, inPath)) {
+                return true;
+            }
+        }
+
+        inPath.remove(current);
+        return false;
+    }
 }
